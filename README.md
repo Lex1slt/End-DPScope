@@ -142,7 +142,6 @@ DPS END/
 │   └── data/names.json # 中文名映射（refresh-names 可更新）
 ├── vendor/endaxis/     # Endaxis 模拟器源码 + dpsend-harness.ts 桥接
 ├── output/             # 生成的报告
-└── research/           # 伤害机制研究文档（乘区导论等三篇）
 ```
 
 `vendor/endaxis` 来自 [Lieyuan621/Endaxis](https://github.com/Lieyuan621/Endaxis)，
