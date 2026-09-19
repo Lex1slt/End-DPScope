@@ -1,0 +1,2 @@
+openpyxl>=3.1
+pywebview>=6.0

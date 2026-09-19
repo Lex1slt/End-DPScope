@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* 正文：CJK 优先；数字/读数走 .num（Bahnschrift，DIN 风格工业字，Windows 内置离线可用） */
+  --font-sans: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui,
+    -apple-system, sans-serif;
+  --font-display: "Bahnschrift", "DIN Alternate", "Arial Narrow",
+    "Segoe UI", sans-serif;
+}
+
+html {
+  font-feature-settings: "cv11", "ss01";
+}
+
+body {
+  @apply antialiased font-sans;
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-radius: 2px;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline-offset: 0;
+}
+
+/* 细滚动条：桌面工具的仪器感 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 5px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sub);
+}
+
+/* ══════════ 皮肤系统：每套皮肤定义 明/暗 两组语义变量 ══════════
+   变量口径（新皮肤按此补齐）：
+   bg / surface(卡片) / surface2(输入与内嵌块) / panel(读数面板)
+   border / border-strong(分隔与描边) / text / sub / faint(仅提示性文字)
+   accent / on-accent / accent-soft / track(条形底槽)
+   hazard-a/b(警示条纹) / ok / danger / warn */
+
+/* ── 「结束剂」Endfield 工业黑黄（默认） ── */
+:root,
+[data-skin="endfield"] {
+  --bg: #f3f3f1;
+  --surface: #ffffff;
+  --surface2: #f4f4f2;
+  --panel: #fafaf8;
+  --border: rgba(23, 24, 26, 0.1);
+  --border-strong: rgba(23, 24, 26, 0.18);
+  --text: #1c1d20;
+  --sub: #565862;
+  --faint: #75777f;
+  --accent: #1c1d20;
+  --on-accent: #ffffff;
+  --accent-hover: #35363b;
+  --accent-soft: rgba(28, 29, 32, 0.06);
+  --track: #e8e8e6;
+  --hazard-a: #ffd100;
+  --hazard-b: #17181a;
+  --ok: #0c9d66;
+  --danger: #d3271c;
+  --warn: #a16207;
+}
+
+.dark[data-skin="endfield"],
+.dark:not([data-skin]) {
+  --bg: #121316;
+  --surface: #191b1f;
+  --surface2: #232529;
+  --panel: #16181b;
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text: #f2f3f5;
+  --sub: #a8aab0;
+  --faint: #85888f;
+  --accent: #ffd100;
+  --on-accent: #17181a;
+  --accent-hover: #ffdb3d;
+  --accent-soft: rgba(255, 209, 0, 0.09);
+  --track: #26282d;
+  --hazard-a: #ffd100;
+  --hazard-b: #121316;
+  --ok: #40d298;
+  --danger: #ff7069;
+  --warn: #ffb224;
+}
+
+/* ── 「罗德岛」Rhodes Island 冰蓝科技 ── */
+[data-skin="rhodes"] {
+  --bg: #eef4f8;
+  --surface: #ffffff;
+  --surface2: #e9f0f5;
+  --panel: #f7fafc;
+  --border: rgba(18, 34, 46, 0.1);
+  --border-strong: rgba(18, 34, 46, 0.18);
+  --text: #12222e;
+  --sub: #4e6373;
+  --faint: #6b7f8e;
+  --accent: #0c86c9;
+  --on-accent: #ffffff;
+  --accent-hover: #0a74ae;
+  --accent-soft: rgba(12, 134, 201, 0.08);
+  --track: #e2ebf2;
+  --hazard-a: #23ade5;
+  --hazard-b: #12222e;
+  --ok: #0c9d66;
+  --danger: #d3271c;
+  --warn: #a16207;
+}
+
+.dark[data-skin="rhodes"] {
+  --bg: #0c1218;
+  --surface: #141c25;
+  --surface2: #1c2733;
+  --panel: #111820;
+  --border: rgba(125, 175, 215, 0.14);
+  --border-strong: rgba(125, 175, 215, 0.24);
+  --text: #e9f2f8;
+  --sub: #93a8b8;
+  --faint: #6f8597;
+  --accent: #45bdf9;
+  --on-accent: #06131d;
+  --accent-hover: #6ccdfa;
+  --accent-soft: rgba(69, 189, 249, 0.1);
+  --track: #1c2733;
+  --hazard-a: #23ade5;
+  --hazard-b: #0c1218;
+  --ok: #40d298;
+  --danger: #ff7069;
+  --warn: #ffb224;
+}
+
+/* ── 「拓荒者」Pioneer 荒原暖琥珀 ── */
+[data-skin="pioneer"] {
+  --bg: #f4efe6;
+  --surface: #fffcf4;
+  --surface2: #efe8da;
+  --panel: #faf6ec;
+  --border: rgba(42, 35, 24, 0.12);
+  --border-strong: rgba(42, 35, 24, 0.2);
+  --text: #2a2318;
+  --sub: #6d5f4b;
+  --faint: #857761;
+  --accent: #a34a06;
+  --on-accent: #fffcf4;
+  --accent-hover: #8a3e05;
+  --accent-soft: rgba(163, 74, 6, 0.07);
+  --track: #eae2d2;
+  --hazard-a: #d97706;
+  --hazard-b: #2a2318;
+  --ok: #15803d;
+  --danger: #b91c1c;
+  --warn: #a16207;
+}
+
+.dark[data-skin="pioneer"] {
+  --bg: #171310;
+  --surface: #201a15;
+  --surface2: #2a231c;
+  --panel: #1c1712;
+  --border: rgba(216, 186, 148, 0.13);
+  --border-strong: rgba(216, 186, 148, 0.22);
+  --text: #f2ebe0;
+  --sub: #a99c88;
+  --faint: #877a66;
+  --accent: #f0a13c;
+  --on-accent: #1b140d;
+  --accent-hover: #f6b558;
+  --accent-soft: rgba(240, 161, 60, 0.1);
+  --track: #2a231c;
+  --hazard-a: #f0a13c;
+  --hazard-b: #171310;
+  --ok: #57cf7f;
+  --danger: #f26d5f;
+  --warn: #ffb224;
+}
+
+/* ── 仪器语言组件 ── */
+
+/* 黄黑/主题色警示条纹——品牌识别，只用在页头与结果面板顶缘 */
+.hazard {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--hazard-a) 0 7px,
+    var(--hazard-b) 7px 14px
+  );
+}
+
+/* 右上切角（终末地棱角语言） */
+.clip-corner {
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+}
+.clip-corner-sm {
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+}
+
+/* 数字读数：DIN 风格 + 等宽数字 */
+.num {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+/* 拐力（增益转化）段的斜纹填充——与实心伤害段区分 */
+.stripe-buff {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--accent) 55%, transparent) 0 3px,
+    color-mix(in srgb, var(--accent) 20%, transparent) 3px 6px
+  );
+}
+
+/* 读数面板的四角刻度框——仪表盘取景框 */
+.frame-ticks {
+  position: relative;
+}
+.frame-ticks::before,
+.frame-ticks::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+.frame-ticks::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--accent);
+  border-left: 2px solid var(--accent);
+}
+.frame-ticks::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+}
+
+/* 秒伤曲线的横向基准线 */
+.chart-grid {
+  background-image: repeating-linear-gradient(
+    to top,
+    transparent 0 27px,
+    var(--border) 27px 28px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "__native": {
+    "name": "我的轴",
+    "durationSec": 120,
+    "prepSec": 5,
+    "enemy": {
+      "id": "eny_0082_hsbear",
+      "level": 90,
+      "hpMultiplier": 3.6,
+      "resistance": { "physical": 50, "heat": 50, "cryo": 50, "electric": 50, "nature": 50 }
+    },
+    "operators": [
+      {
+        "operator": "last-rite",
+        "level": 90,
+        "promoted": true,
+        "potential": 0,
+        "trust": 4,
+        "skills": { "basicAttack": 12, "battleSkill": 12, "comboSkill": 12, "ultimate": 12 },
+        "talents": { "0": 2, "1": 2 },
+        "weapon": { "slug": "khravengger", "level": 90, "tuned": true,
+                    "affix1": 9, "affix2": 9, "talent": 4 },
+        "gears": [
+          "tide-fall-light-armor@3,3,3,3",
+          "tide-surge-gauntlets@3,3,3,3",
+          "hanging-river-o2-tube@3,3,3,3",
+          "lynx-slab@3,3,3,3"
+        ],
+        "rotation": [
+          { "t": 5.02, "skill": "basicAttack", "segment": 1 },
+          { "t": 5.72, "skill": "basicAttack", "segment": 2 },
+          { "t": 6.77, "skill": "basicAttack", "segment": 3 },
+          { "t": 7.83, "skill": "basicAttack", "segment": 4 },
+          { "t": 17.47, "skill": "battleSkill" },
+          { "t": 21.85, "skill": "comboSkill" },
+          { "t": 52.45, "skill": "ultimate" }
+        ],
+        "critRate": 62.5,
+        "critDmg": 150
+      },
+      {
+        "operator": "xaihi",
+        "level": 90,
+        "promoted": true,
+        "potential": 5,
+        "trust": 4,
+        "skills": { "basicAttack": 12, "battleSkill": 12, "comboSkill": 12, "ultimate": 12 },
+        "talents": { "0": 2, "1": 2 },
+        "weapon": { "slug": "chivalric-virtues", "level": 90, "tuned": true,
+                    "affix1": 9, "affix2": 9, "talent": 4 },
+        "gears": [
+          "redeemer-armor@3,3,3,3",
+          "eternal-xiranite-gloves-t1@3,3,3,3",
+          "eternal-xiranite-power-core@3,3,3,3",
+          "eternal-xiranite-power-core@3,3,3,3"
+        ],
+        "rotation": [
+          { "t": 31.47, "skill": "battleSkill" },
+          { "t": 39.47, "skill": "comboSkill" },
+          { "t": 43.68, "skill": "ultimate" },
+          { "t": 57.87, "skill": "dive" }
+        ],
+        "critRate": 80,
+        "critDmg": 200
+      }
+    ]
+  }
+}

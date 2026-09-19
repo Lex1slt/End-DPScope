@@ -1,0 +1,44 @@
+# 构建产物与本地运行时
+End-DPScope-v1.0-x64/
+End-DPScope-v1.0-x64.zip
+dist/
+build/
+output/
+__pycache__/
+*.pyc
+*.log
+
+# 运行时缓存（可再生成）
+.akedata_cache/
+
+# 上游引擎运行依赖（由 安装环境.bat / npm install 重建）
+vendor/endaxis/node_modules/
+
+# 本地备份
+tools/_backup_*.zip
+vendor/endaxis_backup/
+*~
+
+# 本地 UI 状态
+.dpsend_ui.json
+
+# 依赖与本地工具状态
+node_modules/
+.mimosa/
+
+# 本地临时/报告产物
+.tmp_ake/
+_catalog_raw.json
+*.xlsx
+.zcodeignore
+.video_agent/
+.v2c/
+
+# 完整依赖副本（本地构建 UI 用，发布不需要）
+vendor/endaxis/node_modules_full/
+.tmp_ake/
+_catalog_raw.json
+Endaxis_Timeline_2026-09-13_DPS报告.xlsx
+.zcodeignore
+.video_agent/
+.v2c/
